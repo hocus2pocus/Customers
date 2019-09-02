@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    h1 Blacklisted customers
+
+= link_to 'Main page', customers_path
+
+table
+  tr
+    th Name
+    th Phone number
+    th colspan=2
+
+  = render @customers
+
+br
+
+- if @customer_to_blacklist.nil?
+  = form_tag customers_blacklisted_path, method: :get do
+   = text_field_tag :search, params[:phone_number]
+   = submit_tag "Search"
+- else
+  'Customer with phone number #{@customer_to_blacklist.phone_number} is
+
+  - if @customer_to_blacklist.blacklisted?
+    'already blacklisted.
+    = link_to 'Refresh', customers_blacklisted_path
+  - else
+    'not in the blacklist.
+    = link_to 'Blacklist customer', blacklist_customer_path(@customer_to_blacklist),
+                                method: :patch,
+                                data: { confirm: 'Are you sure?' }
+
+
+
+

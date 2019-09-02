@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    h1 Customers
+
+=> link_to 'New customers', new_customer_path
+' |
+=> link_to 'Blacklisted customers', customers_blacklisted_path
+
+table
+  tr
+    th Name
+    th Phone number
+    th colspan=2
+
+  = render @customers
