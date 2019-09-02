@@ -45,6 +45,7 @@ class CustomersController < ApplicationController
 
   def blacklisted
     @customers = Customer.where(blacklist: true)
+    @customer_to_blacklist = Customer.search(params[:search])
   end
 
   def destroy
@@ -57,6 +58,6 @@ class CustomersController < ApplicationController
   end
 
   def customer_params
-    params.require(:customer).permit(:name, :phone_number, :description, :blacklist)
+    params.require(:customer).permit(:name, :phone_number, :description, :blacklist, :search)
   end
 end

@@ -4,4 +4,10 @@ class Customer < ApplicationRecord
   def blacklisted?
     self.blacklist == true
   end
+
+  def self.search(search)
+    if search
+      Customer.find_by(phone_number: search)
+    end
+  end
 end
