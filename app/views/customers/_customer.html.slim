@@ -1,0 +1,8 @@
+tr
+  td= customer.name
+  td= customer.phone_number
+  td= link_to 'Edit', edit_customer_path(customer)
+  td= link_to customer.blacklisted? ? 'Remove from blacklist' : 'Blacklist customer',
+                                        blacklist_customer_path(customer),
+                                        method: :patch,
+                                        data: { confirm: 'Are you sure?' }

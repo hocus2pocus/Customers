@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    h1 Blacklisted customers
+
+= link_to 'Main page', customers_path
+
+table
+  tr
+    th Name
+    th Phone number
+    th colspan=2
+
+  = render @customers
+
+
+
