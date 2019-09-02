@@ -1,0 +1,11 @@
+<tr>
+  <td><%= customer.name %></td>
+  <td><%= customer.phone_number %></td>
+  <td><%= link_to 'Edit', edit_customer_path(customer) %> |</td>
+  <td><%= link_to 'Blacklist',
+                  blacklist_customer_path(customer),
+                  method: :patch,
+                  data: { confirm: 'Are you sure?' } %>
+  </td>
+
+</tr>
